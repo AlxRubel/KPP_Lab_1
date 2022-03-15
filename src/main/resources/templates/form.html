@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" style="background-color: #F0FFFF">
+    <body>
+        <form action="#" th:action="@{/counter}" th:object="${counterForm}" method="post">
+            <table>
+                <tr>
+                    <td>Word:</td>
+                    <td><input type="text" th:field="*{word}" /></td>
+                    <td th:if="${#fields.hasErrors('word')}" th:errors="*{word}">Word Error</td>
+                </tr>
+                <tr>
+                    <td>Letter:</td>
+                    <td><input type="text" th:field="*{letter}" /></td>
+                    <td th:if="${#fields.hasErrors('letter')}" th:errors="*{letter}">Letter Error</td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Count</button>
+                        <p th:text="*{amountOfChar}" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
